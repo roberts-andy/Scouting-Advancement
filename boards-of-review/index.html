@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Boards of Review Parent Guide</title>
+  <link rel="icon" href="data:,">
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("clawpilotTheme");
+      const theme =
+        param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --cp-bg: #f7f4ef;
+      --cp-bg-elevated: #fcfbf8;
+      --cp-surface: #ffffff;
+      --cp-surface-soft: #f5f5f5;
+      --cp-border: #dedede;
+      --cp-border-strong: #919191;
+      --cp-text: #242424;
+      --cp-text-muted: #5c5c5c;
+      --cp-text-soft: #6f6f6f;
+      --cp-accent: #b11f4b;
+      --cp-accent-hover: #9a1a41;
+      --cp-accent-soft: rgba(177, 31, 75, 0.08);
+      --cp-accent-fg: #ffffff;
+      --cp-success: #16a34a;
+      --cp-danger: #dc2626;
+      --cp-warning: #f59e0b;
+      --cp-link: #0078d4;
+      --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
+      --cp-overlay: rgba(255, 255, 255, 0.8);
+      --cp-panel: rgba(255, 255, 255, 0.86);
+      --cp-panel-strong: rgba(255, 255, 255, 0.96);
+      --cp-sheen: rgba(255, 255, 255, 0.55);
+      --cp-highlight: rgba(177, 31, 75, 0.12);
+    }
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --cp-bg: #3d3b3a;
+      --cp-bg-elevated: #343231;
+      --cp-surface: #292929;
+      --cp-surface-soft: #2e2e2e;
+      --cp-border: #474747;
+      --cp-border-strong: #5f5f5f;
+      --cp-text: #dedede;
+      --cp-text-muted: #919191;
+      --cp-text-soft: #b0b0b0;
+      --cp-accent: #fd8ea1;
+      --cp-accent-hover: #fb7b91;
+      --cp-accent-soft: rgba(253, 142, 161, 0.14);
+      --cp-accent-fg: #1a1a1a;
+      --cp-success: #4ade80;
+      --cp-danger: #f87171;
+      --cp-warning: #fbbf24;
+      --cp-link: #4da6ff;
+      --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+      --cp-overlay: rgba(41, 41, 41, 0.88);
+      --cp-panel: rgba(41, 41, 41, 0.72);
+      --cp-panel-strong: rgba(41, 41, 41, 0.96);
+      --cp-sheen: rgba(255, 255, 255, 0.04);
+      --cp-highlight: rgba(253, 142, 161, 0.12);
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: var(--cp-bg);
+      color: var(--cp-text);
+      font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.55;
+    }
+    a {
+      color: var(--cp-link);
+    }
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+    .hero {
+      background: var(--cp-surface);
+      border: 1px solid var(--cp-border);
+      border-radius: 16px;
+      box-shadow: var(--cp-shadow);
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+    .eyebrow {
+      color: var(--cp-accent);
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      font-size: .78rem;
+      margin: 0 0 8px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.05;
+    }
+    .hero p {
+      color: var(--cp-text-muted);
+      max-width: 820px;
+      margin: 16px 0 0;
+      font-size: 1.08rem;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .sidebar {
+      position: sticky;
+      top: 16px;
+      background: var(--cp-panel-strong);
+      border: 1px solid var(--cp-border);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .sidebar h2 {
+      font-size: .9rem;
+      margin: 0 0 12px;
+      color: var(--cp-text-muted);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .rank-list {
+      display: grid;
+      gap: 8px;
+    }
+    button.rank-button {
+      width: 100%;
+      border: 1px solid var(--cp-border);
+      border-radius: 0.625rem;
+      background: var(--cp-surface);
+      color: var(--cp-text);
+      cursor: pointer;
+      font: inherit;
+      padding: 10px 12px;
+      text-align: left;
+    }
+    button.rank-button:hover,
+    button.rank-button.active {
+      border-color: var(--cp-accent);
+      background: var(--cp-accent-soft);
+    }
+    .quick-card {
+      margin-top: 16px;
+      padding: 14px;
+      border-radius: 0.625rem;
+      background: var(--cp-surface-soft);
+      border: 1px solid var(--cp-border);
+      color: var(--cp-text-muted);
+      font-size: .95rem;
+    }
+    .content {
+      background: var(--cp-surface);
+      border: 1px solid var(--cp-border);
+      border-radius: 16px;
+      padding: 28px;
+      min-height: 520px;
+      box-shadow: var(--cp-shadow);
+    }
+    .content h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      margin-bottom: 16px;
+    }
+    .content h2 {
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--cp-border);
+      color: var(--cp-text);
+    }
+    .content h3 {
+      margin-top: 22px;
+      color: var(--cp-text);
+    }
+    .content p,
+    .content li {
+      color: var(--cp-text-muted);
+    }
+    .content ul {
+      padding-left: 22px;
+    }
+    .content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      overflow: hidden;
+      border-radius: 0.625rem;
+    }
+    .content th,
+    .content td {
+      border: 1px solid var(--cp-border);
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .content th {
+      background: var(--cp-surface-soft);
+      color: var(--cp-text);
+    }
+    .callout {
+      margin: 18px 0;
+      padding: 14px 16px;
+      border-left: 4px solid var(--cp-accent);
+      background: var(--cp-accent-soft);
+      border-radius: 0.625rem;
+      color: var(--cp-text-muted);
+    }
+    .toolbar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .select-wrap {
+      display: none;
+      width: 100%;
+    }
+    select {
+      width: 100%;
+      border: 1px solid var(--cp-border);
+      border-radius: 0.625rem;
+      background: var(--cp-surface);
+      color: var(--cp-text);
+      padding: 10px 12px;
+      font: inherit;
+    }
+    .source-link {
+      font-size: .92rem;
+      color: var(--cp-text-soft);
+    }
+    .loading {
+      color: var(--cp-text-muted);
+      padding: 24px;
+      border: 1px dashed var(--cp-border-strong);
+      border-radius: 0.625rem;
+    }
+    footer {
+      color: var(--cp-text-soft);
+      margin-top: 22px;
+      font-size: .92rem;
+      text-align: center;
+    }
+    @media (max-width: 820px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: static;
+      }
+      .rank-list {
+        display: none;
+      }
+      .select-wrap {
+        display: block;
+      }
+    }
+    @media print {
+      .sidebar,
+      .toolbar,
+      footer {
+        display: none;
+      }
+      .page {
+        max-width: none;
+        padding: 0;
+      }
+      .hero,
+      .content {
+        box-shadow: none;
+        border: 0;
+      }
+      .layout {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">Scouts BSA Parent Resource</p>
+      <h1>Boards of Review Parent Guide</h1>
+      <p>Plain-English rank context and friendly board questions for parents and committee members. This is a conversation aid, not a replacement for the current official requirements or your troop advancement process.</p>
+    </section>
+
+    <section class="layout">
+      <aside class="sidebar" aria-label="Rank navigation">
+        <h2>Choose a rank</h2>
+        <div class="rank-list" id="rankList"></div>
+        <div class="select-wrap">
+          <label for="rankSelect">Rank</label>
+          <select id="rankSelect"></select>
+        </div>
+        <div class="quick-card">
+          <strong>Parent tip:</strong> This is not a retest. Ask what the scout experienced, learned, enjoyed, struggled with, and how the troop can help.
+        </div>
+      </aside>
+
+      <article class="content" aria-live="polite">
+        <div class="toolbar">
+          <span class="source-link" id="sourceLink"></span>
+          <span class="source-link">Use the browser print command for a parent handout.</span>
+        </div>
+        <div id="content" class="loading">Loading guide...</div>
+      </article>
+    </section>
+
+    <footer>
+      Built from the Markdown guides in this repository. Use the current official Scouts BSA requirements as the source of truth.
+    </footer>
+  </main>
+
+  <script>
+    const ranks = [
+      { id: "overview", label: "Overview", path: "README.md" },
+      { id: "scout", label: "Scout", path: "00-scout/README.md" },
+      { id: "tenderfoot", label: "Tenderfoot", path: "01-tenderfoot/README.md" },
+      { id: "second-class", label: "Second Class", path: "02-second-class/README.md" },
+      { id: "first-class", label: "First Class", path: "03-first-class/README.md" },
+      { id: "star", label: "Star", path: "04-star/README.md" },
+      { id: "life", label: "Life", path: "05-life/README.md" },
+      { id: "eagle", label: "Eagle", path: "06-eagle/README.md" }
+    ];
+
+    const contentEl = document.getElementById("content");
+    const rankListEl = document.getElementById("rankList");
+    const rankSelectEl = document.getElementById("rankSelect");
+    const sourceLinkEl = document.getElementById("sourceLink");
+
+    function escapeHtml(value) {
+      return value
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function inlineMarkdown(value) {
+      return escapeHtml(value)
+        .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+        .replace(/`(.+?)`/g, "<code>$1</code>");
+    }
+
+    function renderTable(lines, start) {
+      const tableLines = [];
+      let index = start;
+      while (index < lines.length && /^\|.*\|$/.test(lines[index].trim())) {
+        tableLines.push(lines[index].trim());
+        index++;
+      }
+      const rows = tableLines
+        .filter((line, i) => i !== 1 || !/^\|[\s:-]+\|/.test(line))
+        .map(line => line.slice(1, -1).split("|").map(cell => inlineMarkdown(cell.trim())));
+      if (!rows.length) return { html: "", next: index };
+      const [head, ...body] = rows;
+      const html = [
+        "<table><thead><tr>",
+        ...head.map(cell => `<th>${cell}</th>`),
+        "</tr></thead><tbody>",
+        ...body.map(row => `<tr>${row.map(cell => `<td>${cell}</td>`).join("")}</tr>`),
+        "</tbody></table>"
+      ].join("");
+      return { html, next: index };
+    }
+
+    function markdownToHtml(markdown) {
+      const lines = markdown.replace(/\r\n/g, "\n").split("\n");
+      const html = [];
+      let inList = false;
+      let paragraph = [];
+
+      function flushParagraph() {
+        if (paragraph.length) {
+          html.push(`<p>${inlineMarkdown(paragraph.join(" "))}</p>`);
+          paragraph = [];
+        }
+      }
+      function closeList() {
+        if (inList) {
+          html.push("</ul>");
+          inList = false;
+        }
+      }
+
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (!line) {
+          flushParagraph();
+          closeList();
+          continue;
+        }
+        if (/^\|.*\|$/.test(line)) {
+          flushParagraph();
+          closeList();
+          const result = renderTable(lines, i);
+          html.push(result.html);
+          i = result.next - 1;
+          continue;
+        }
+        if (line.startsWith("# ")) {
+          flushParagraph();
+          closeList();
+          html.push(`<h1>${inlineMarkdown(line.slice(2))}</h1>`);
+          continue;
+        }
+        if (line.startsWith("## ")) {
+          flushParagraph();
+          closeList();
+          html.push(`<h2>${inlineMarkdown(line.slice(3))}</h2>`);
+          continue;
+        }
+        if (line.startsWith("### ")) {
+          flushParagraph();
+          closeList();
+          html.push(`<h3>${inlineMarkdown(line.slice(4))}</h3>`);
+          continue;
+        }
+        if (line.startsWith("- ")) {
+          flushParagraph();
+          if (!inList) {
+            html.push("<ul>");
+            inList = true;
+          }
+          html.push(`<li>${inlineMarkdown(line.slice(2))}</li>`);
+          continue;
+        }
+        paragraph.push(line);
+      }
+
+      flushParagraph();
+      closeList();
+      return html.join("\n").replace(
+        /<p>Use the current official Scouts BSA requirements as the source of truth\.(.*?)<\/p>/,
+        '<div class="callout">Use the current official Scouts BSA requirements as the source of truth.$1</div>'
+      );
+    }
+
+    function setActive(id) {
+      document.querySelectorAll(".rank-button").forEach(button => {
+        button.classList.toggle("active", button.dataset.rank === id);
+      });
+      rankSelectEl.value = id;
+    }
+
+    async function loadRank(id, updateHash = true) {
+      const rank = ranks.find(item => item.id === id) || ranks[0];
+      setActive(rank.id);
+      contentEl.className = "loading";
+      contentEl.textContent = "Loading guide...";
+      sourceLinkEl.innerHTML = `Source: <a href="${rank.path}">${rank.path}</a>`;
+      if (updateHash && location.hash !== `#${rank.id}`) {
+        history.replaceState(null, "", `#${rank.id}`);
+      }
+      try {
+        const response = await fetch(rank.path, { cache: "no-cache" });
+        if (!response.ok) throw new Error(`Could not load ${rank.path}`);
+        const markdown = await response.text();
+        contentEl.className = "";
+        contentEl.innerHTML = markdownToHtml(markdown);
+      } catch (error) {
+        contentEl.className = "loading";
+        contentEl.textContent = "Could not load the guide. Open the Markdown source from the link above.";
+      }
+    }
+
+    ranks.forEach(rank => {
+      const button = document.createElement("button");
+      button.className = "rank-button";
+      button.type = "button";
+      button.dataset.rank = rank.id;
+      button.textContent = rank.label;
+      button.addEventListener("click", () => loadRank(rank.id));
+      rankListEl.appendChild(button);
+
+      const option = document.createElement("option");
+      option.value = rank.id;
+      option.textContent = rank.label;
+      rankSelectEl.appendChild(option);
+    });
+
+    rankSelectEl.addEventListener("change", event => loadRank(event.target.value));
+    window.addEventListener("hashchange", () => loadRank(location.hash.replace("#", "") || "overview", false));
+    loadRank(location.hash.replace("#", "") || "overview", false);
+  </script>
+</body>
+</html>
