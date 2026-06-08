@@ -17,7 +17,7 @@ Use the current official merit badge pamphlet and official requirements as the s
 
 | Folder | Contents |
 |---|---|
-| `templates` | Workbook and CSV templates for issue research, meeting notes, service logging, and final review. |
-| `emails` | Parent/scout-ready email drafts. |
-| `agendas` | Kickoff, two touchpoints, and final review agendas. |
-| `resources` | Counselor guide, question bank, final checklist, and scout instructions. |
+| [Templates](#citizenship-in-community-templates) | Workbook and CSV templates for issue research, meeting notes, service logging, and final review. |
+| [Emails](#citizenship-in-community-emails) | Parent/scout-ready email drafts. |
+| [Agendas](#citizenship-in-community-agendas) | Kickoff, two touchpoints, and final review agendas. |
+| [Resources](#citizenship-in-community-resources) | Counselor guide, question bank, final checklist, and scout instructions. |

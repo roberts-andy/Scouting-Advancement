@@ -222,6 +222,33 @@
       background: var(--cp-surface-soft);
       color: var(--cp-text);
     }
+    .folder-panel {
+      margin-bottom: 20px;
+      padding: 16px;
+      border: 1px solid var(--cp-border);
+      border-radius: 0.625rem;
+      background: var(--cp-surface-soft);
+    }
+    .folder-panel h2 {
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+    }
+    .folder-panel p {
+      margin: 0 0 12px;
+      color: var(--cp-text-muted);
+    }
+    .folder-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .folder-links a {
+      border: 1px solid var(--cp-border);
+      border-radius: 0.625rem;
+      background: var(--cp-surface);
+      padding: 6px 9px;
+      text-decoration: none;
+    }
     .loading {
       color: var(--cp-text-muted);
       padding: 18px;
@@ -297,9 +324,147 @@
   </main>
   <script>
     const guides = [
-      { id: "personal-management", label: "Personal Management", path: "personal-management/README.md" },
-      { id: "family-life", label: "Family Life", path: "family-life/README.md" },
-      { id: "citizenship-in-community", label: "Citizenship in the Community", path: "citizenship-in-community/README.md" }
+      {
+        id: "personal-management",
+        label: "Personal Management",
+        path: "personal-management/README.md",
+        folders: {
+          templates: {
+            label: "Templates",
+            description: "Tracking workbooks and CSV templates.",
+            files: [
+              ["13-week tracker workbook", "personal-management/templates/personal-management-13-week-tracker.xlsx"],
+              ["Major purchase plan CSV", "personal-management/templates/major-purchase-plan-template.csv"],
+              ["Transaction log CSV", "personal-management/templates/transaction-log-template.csv"]
+            ]
+          },
+          emails: {
+            label: "Emails",
+            description: "Parent and scout email drafts for launch, reminders, and final review.",
+            files: [
+              ["Kickoff email", "personal-management/emails/01-parent-and-scout-kickoff-email.md"],
+              ["Touchpoint 1 reminder", "personal-management/emails/02-touchpoint-1-reminder-email.md"],
+              ["Touchpoint 2 reminder", "personal-management/emails/03-touchpoint-2-reminder-email.md"],
+              ["Final review email", "personal-management/emails/04-final-review-email.md"],
+              ["Parent progress nudge", "personal-management/emails/05-parent-progress-nudge.md"]
+            ]
+          },
+          agendas: {
+            label: "Agendas",
+            description: "Meeting agendas for kickoff, two touchpoints, and final review.",
+            files: [
+              ["Kickoff agenda", "personal-management/agendas/01-kickoff-meeting-agenda.md"],
+              ["Touchpoint 1 agenda", "personal-management/agendas/02-touchpoint-1-agenda.md"],
+              ["Touchpoint 2 agenda", "personal-management/agendas/03-touchpoint-2-agenda.md"],
+              ["Final review agenda", "personal-management/agendas/04-final-review-agenda.md"]
+            ]
+          },
+          resources: {
+            label: "Resources",
+            description: "Counselor guide, question bank, review checklist, and scout instructions.",
+            files: [
+              ["Counselor guide", "personal-management/resources/counselor-guide.md"],
+              ["Discussion question bank", "personal-management/resources/discussion-question-bank.md"],
+              ["Final review checklist", "personal-management/resources/final-review-checklist.md"],
+              ["Scout instructions", "personal-management/resources/scout-instructions.md"]
+            ]
+          }
+        }
+      },
+      {
+        id: "family-life",
+        label: "Family Life",
+        path: "family-life/README.md",
+        folders: {
+          templates: {
+            label: "Templates",
+            description: "Workbook and CSV templates for responsibility tracking and family project planning.",
+            files: [
+              ["Family Life tracker workbook", "family-life/templates/family-life-tracker.xlsx"],
+              ["Family project plan CSV", "family-life/templates/family-project-plan-template.csv"],
+              ["Home responsibility log CSV", "family-life/templates/home-responsibility-log-template.csv"]
+            ]
+          },
+          emails: {
+            label: "Emails",
+            description: "Parent and scout email drafts for kickoff, check-ins, and final review.",
+            files: [
+              ["Kickoff email", "family-life/emails/01-parent-and-scout-kickoff-email.md"],
+              ["Touchpoint 1 reminder", "family-life/emails/02-touchpoint-1-reminder-email.md"],
+              ["Touchpoint 2 reminder", "family-life/emails/03-touchpoint-2-reminder-email.md"],
+              ["Final review email", "family-life/emails/04-final-review-email.md"],
+              ["Parent progress nudge", "family-life/emails/05-parent-progress-nudge.md"]
+            ]
+          },
+          agendas: {
+            label: "Agendas",
+            description: "Meeting agendas for kickoff, two touchpoints, and final review.",
+            files: [
+              ["Kickoff agenda", "family-life/agendas/01-kickoff-meeting-agenda.md"],
+              ["Touchpoint 1 agenda", "family-life/agendas/02-touchpoint-1-agenda.md"],
+              ["Touchpoint 2 agenda", "family-life/agendas/03-touchpoint-2-agenda.md"],
+              ["Final review agenda", "family-life/agendas/04-final-review-agenda.md"]
+            ]
+          },
+          resources: {
+            label: "Resources",
+            description: "Counselor guide, question bank, final checklist, and scout instructions.",
+            files: [
+              ["Counselor guide", "family-life/resources/counselor-guide.md"],
+              ["Discussion question bank", "family-life/resources/discussion-question-bank.md"],
+              ["Final review checklist", "family-life/resources/final-review-checklist.md"],
+              ["Scout instructions", "family-life/resources/scout-instructions.md"]
+            ]
+          }
+        }
+      },
+      {
+        id: "citizenship-in-community",
+        label: "Citizenship in the Community",
+        path: "citizenship-in-community/README.md",
+        folders: {
+          templates: {
+            label: "Templates",
+            description: "Workbook and CSV templates for issue research, service logging, and final review.",
+            files: [
+              ["Citizenship tracker workbook", "citizenship-in-community/templates/citizenship-in-community-tracker.xlsx"],
+              ["Community issue research CSV", "citizenship-in-community/templates/community-issue-research-template.csv"],
+              ["Community service log CSV", "citizenship-in-community/templates/community-service-log-template.csv"]
+            ]
+          },
+          emails: {
+            label: "Emails",
+            description: "Parent and scout email drafts for kickoff, check-ins, final review, and service safety.",
+            files: [
+              ["Kickoff email", "citizenship-in-community/emails/01-parent-and-scout-kickoff-email.md"],
+              ["Touchpoint 1 reminder", "citizenship-in-community/emails/02-touchpoint-1-reminder-email.md"],
+              ["Touchpoint 2 reminder", "citizenship-in-community/emails/03-touchpoint-2-reminder-email.md"],
+              ["Final review email", "citizenship-in-community/emails/04-final-review-email.md"],
+              ["Parent service safety note", "citizenship-in-community/emails/05-parent-service-safety-note.md"]
+            ]
+          },
+          agendas: {
+            label: "Agendas",
+            description: "Meeting agendas for kickoff, two touchpoints, and final review.",
+            files: [
+              ["Kickoff agenda", "citizenship-in-community/agendas/01-kickoff-meeting-agenda.md"],
+              ["Touchpoint 1 agenda", "citizenship-in-community/agendas/02-touchpoint-1-agenda.md"],
+              ["Touchpoint 2 agenda", "citizenship-in-community/agendas/03-touchpoint-2-agenda.md"],
+              ["Final review agenda", "citizenship-in-community/agendas/04-final-review-agenda.md"]
+            ]
+          },
+          resources: {
+            label: "Resources",
+            description: "Counselor guide, question bank, final checklist, and scout instructions.",
+            files: [
+              ["Counselor guide", "citizenship-in-community/resources/counselor-guide.md"],
+              ["Discussion question bank", "citizenship-in-community/resources/discussion-question-bank.md"],
+              ["Final review checklist", "citizenship-in-community/resources/final-review-checklist.md"],
+              ["Scout instructions", "citizenship-in-community/resources/scout-instructions.md"]
+            ]
+          }
+        }
+      }
     ];
 
     const guideContent = document.getElementById("guideContent");
@@ -416,11 +581,39 @@
       return html.join("\n");
     }
 
+    function resolveRoute(id) {
+      for (const guide of guides) {
+        if (id === guide.id) return { guide };
+        const prefix = `${guide.id}-`;
+        if (id.startsWith(prefix)) {
+          const folderId = id.slice(prefix.length);
+          if (guide.folders[folderId]) return { guide, folderId };
+        }
+      }
+      return {};
+    }
+
+    function renderFolderPanel(guide, folderId) {
+      if (!folderId) return "";
+      const folder = guide.folders[folderId];
+      if (!folder) return "";
+      return [
+        '<section class="folder-panel">',
+        `<h2>${folder.label}</h2>`,
+        `<p>${folder.description}</p>`,
+        '<div class="folder-links">',
+        ...folder.files.map(([label, href]) => `<a href="${href}">${label}</a>`),
+        '</div>',
+        '</section>'
+      ].join("");
+    }
+
     async function loadGuide(id, updateHash = true) {
-      const guide = guides.find(item => item.id === id);
+      const { guide, folderId } = resolveRoute(id);
       if (!guide) return;
-      if (updateHash && location.hash !== `#${guide.id}`) {
-        history.replaceState(null, "", `#${guide.id}`);
+      const route = folderId ? `${guide.id}-${folderId}` : guide.id;
+      if (updateHash && location.hash !== `#${route}`) {
+        history.replaceState(null, "", `#${route}`);
       }
       guideSource.innerHTML = `Source: <a href="${guide.path}">${guide.path}</a>`;
       guideContent.className = "guide-content loading";
@@ -432,7 +625,7 @@
       }
       const markdown = await response.text();
       guideContent.className = "guide-content";
-      guideContent.innerHTML = markdownToHtml(markdown);
+      guideContent.innerHTML = `${renderFolderPanel(guide, folderId)}${markdownToHtml(markdown)}`;
       guideContent.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 

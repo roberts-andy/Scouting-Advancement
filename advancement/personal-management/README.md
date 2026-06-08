@@ -17,7 +17,7 @@ Use the current official merit badge pamphlet and official requirements as the s
 
 | Folder | Contents |
 |---|---|
-| `templates` | Excel workbook and CSV-style structures for budget tracking, major purchase planning, and final review. |
-| `emails` | Parent/scout-ready email drafts for launch, touchpoints, reminders, and final review. |
-| `agendas` | Meeting agendas for kickoff, two touchpoints, and final review. |
-| `resources` | Counselor guide, question bank, discussion prompts, and review checklist. |
+| [Templates](#personal-management-templates) | Excel workbook and CSV-style structures for budget tracking, major purchase planning, and final review. |
+| [Emails](#personal-management-emails) | Parent/scout-ready email drafts for launch, touchpoints, reminders, and final review. |
+| [Agendas](#personal-management-agendas) | Meeting agendas for kickoff, two touchpoints, and final review. |
+| [Resources](#personal-management-resources) | Counselor guide, question bank, discussion prompts, and review checklist. |
