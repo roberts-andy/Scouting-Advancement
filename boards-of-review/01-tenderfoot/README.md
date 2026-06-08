@@ -1,28 +1,61 @@
 # Tenderfoot Board of Review Guide
 
+
+
+## Official Scouting.org references
+
+
+
+- [Scouts BSA advancement overview](https://www.scouting.org/programs/scouts-bsa/advancement-and-awards/)
+- [Scouts BSA advancement resources](https://www.scouting.org/programs/scouts-bsa/advancement-and-awards/resources/)
+- [Guide to Advancement](https://www.scouting.org/resources/guide-to-advancement/)
+
+Use these official Scouting.org resources, the current Scouts BSA Handbook, and your troop's advancement records as the source of truth for current requirements.
+
+
+
+
 ## What this rank means
+
+
 
 Tenderfoot is the first major step after joining. It means the scout is no longer just learning where things are; they are beginning to participate, practice basic skills, and understand what it means to belong to a patrol and troop.
 
 Tenderfoot scouts are still new, but they should be starting to build confidence and independence.
 
+
+
 ## Their role in the troop and patrol model
+
+
 
 A Tenderfoot scout should be learning how to be a reliable patrol member. They are not expected to lead everything, but they should be learning to follow youth leadership, help with simple patrol tasks, participate in meetings and outings, and ask for help from their patrol leader or older scouts.
 
 This is where the patrol method starts to become real: scouts learn by doing with other scouts.
 
+
+
 ## What they worked on
+
+
 
 The scout has been practicing foundational skills: basic camping habits, personal fitness, first aid awareness, knots and outdoor skills, patrol participation, scout spirit, and early service. They have also been learning that advancement requires effort over time, not just attendance.
 
+
+
 ## How they should think about the next rank
+
+
 
 As they move toward Second Class and eventually First Class, they should focus on becoming more comfortable outdoors, more prepared for meetings and campouts, and more willing to help their patrol without being asked.
 
 The next step is not perfection. The next step is participation with growing responsibility.
 
+
+
 ## Questions parents can ask
+
+
 
 - What was the most useful skill you learned while working on Tenderfoot?
 - What was harder than you expected?
@@ -35,6 +68,10 @@ The next step is not perfection. The next step is participation with growing res
 - What do you want to get better at before Second Class?
 - What can older scouts or adults do to help newer scouts succeed?
 
+
+
 ## Parent reviewer reminder
+
+
 
 Do not quiz the scout on requirements. Ask what they experienced and what they learned.

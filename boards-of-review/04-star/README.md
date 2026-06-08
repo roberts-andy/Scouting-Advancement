@@ -1,26 +1,59 @@
 # Star Board of Review Guide
 
+
+
+## Official Scouting.org references
+
+
+
+- [Scouts BSA advancement overview](https://www.scouting.org/programs/scouts-bsa/advancement-and-awards/)
+- [Scouts BSA advancement resources](https://www.scouting.org/programs/scouts-bsa/advancement-and-awards/resources/)
+- [Guide to Advancement](https://www.scouting.org/resources/guide-to-advancement/)
+
+Use these official Scouting.org resources, the current Scouts BSA Handbook, and your troop's advancement records as the source of truth for current requirements.
+
+
+
+
 ## What this rank means
+
+
 
 Star is the beginning of the upper-rank journey. The scout has moved beyond basic skills and is now expected to show leadership, service, merit badge progress, and stronger ownership of their scouting path.
 
 Star scouts should be learning that advancement is not just personal achievement. It is also about contributing to the troop and helping others succeed.
 
+
+
 ## Their role in the troop and patrol model
+
+
 
 A Star scout should be moving into leadership or dependable support roles. They may serve as a patrol leader, assistant patrol leader, troop guide, instructor, quartermaster, scribe, or another position of responsibility.
 
 The key question is not only what title they held, but whether they made the troop better.
 
+
+
 ## What they worked on
+
+
 
 The scout has been working on merit badges, service, leadership responsibility, scout spirit, and continued participation. They should be developing follow-through, communication, and accountability.
 
+
+
 ## How they should think about the next rank
+
+
 
 Moving toward Life means deeper leadership and more intentional service. The scout should start thinking about what kind of leader they are, how they support younger scouts, and what long-term path might eventually lead toward Eagle if they choose to pursue it.
 
+
+
 ## Questions parents can ask
+
+
 
 - What leadership role or responsibility have you had, formal or informal?
 - What did you learn about leading other scouts?
@@ -33,6 +66,10 @@ Moving toward Life means deeper leadership and more intentional service. The sco
 - How are you planning your remaining merit badges?
 - What keeps you interested in scouting now that you are in the upper ranks?
 
+
+
 ## Parent reviewer reminder
+
+
 
 Ask for examples. Leadership should show up in stories, not just position patches.
