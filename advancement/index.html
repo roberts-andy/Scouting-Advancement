@@ -174,6 +174,60 @@
       background: var(--cp-accent-soft);
       color: var(--cp-text-muted);
     }
+    .guide {
+      margin-top: 20px;
+      background: var(--cp-surface);
+      border: 1px solid var(--cp-border);
+      border-radius: 16px;
+      box-shadow: var(--cp-shadow);
+      padding: 28px;
+    }
+    .guide-toolbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+      color: var(--cp-text-soft);
+      font-size: .92rem;
+    }
+    .guide-content h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      margin-bottom: 16px;
+    }
+    .guide-content h2 {
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--cp-border);
+    }
+    .guide-content p,
+    .guide-content li {
+      color: var(--cp-text-muted);
+    }
+    .guide-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      border-radius: 0.625rem;
+      overflow: hidden;
+    }
+    .guide-content th,
+    .guide-content td {
+      border: 1px solid var(--cp-border);
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .guide-content th {
+      background: var(--cp-surface-soft);
+      color: var(--cp-text);
+    }
+    .loading {
+      color: var(--cp-text-muted);
+      padding: 18px;
+      border: 1px dashed var(--cp-border-strong);
+      border-radius: 0.625rem;
+    }
     footer {
       color: var(--cp-text-soft);
       margin-top: 22px;
@@ -201,7 +255,7 @@
         <h2>Personal Management</h2>
         <p>A 13-week coaching kit focused on real tracking, budgeting, major purchase planning, and reflection.</p>
         <div class="actions">
-          <a class="button primary" href="personal-management/README.md">Open guide</a>
+          <a class="button primary" href="#personal-management">Open guide</a>
           <a class="button" href="personal-management/templates/personal-management-13-week-tracker.xlsx">Download tracker</a>
         </div>
       </article>
@@ -210,7 +264,7 @@
         <h2>Family Life</h2>
         <p>A counseling kit for home responsibilities, family meetings, family project planning, and final reflection.</p>
         <div class="actions">
-          <a class="button primary" href="family-life/README.md">Open guide</a>
+          <a class="button primary" href="#family-life">Open guide</a>
           <a class="button" href="family-life/templates/family-life-tracker.xlsx">Download tracker</a>
         </div>
       </article>
@@ -219,7 +273,7 @@
         <h2>Citizenship in the Community</h2>
         <p>A counseling kit for community research, issue discussion, civic observation, service logging, and reflection.</p>
         <div class="actions">
-          <a class="button primary" href="citizenship-in-community/README.md">Open guide</a>
+          <a class="button primary" href="#citizenship-in-community">Open guide</a>
           <a class="button" href="citizenship-in-community/templates/citizenship-in-community-tracker.xlsx">Download tracker</a>
         </div>
       </article>
@@ -229,9 +283,163 @@
       Use the current official merit badge pamphlet and official requirements as the source of truth. These resources are counseling aids.
     </div>
 
+    <section class="guide" aria-live="polite">
+      <div class="guide-toolbar">
+        <span id="guideSource">Choose a merit badge guide above.</span>
+        <span>Use the browser print command for a parent or counselor handout.</span>
+      </div>
+      <div id="guideContent" class="guide-content loading">Choose a merit badge guide above.</div>
+    </section>
+
     <footer>
       Also available as the friendly route <a href="../merit-badges/">/merit-badges/</a>.
     </footer>
   </main>
+  <script>
+    const guides = [
+      { id: "personal-management", label: "Personal Management", path: "personal-management/README.md" },
+      { id: "family-life", label: "Family Life", path: "family-life/README.md" },
+      { id: "citizenship-in-community", label: "Citizenship in the Community", path: "citizenship-in-community/README.md" }
+    ];
+
+    const guideContent = document.getElementById("guideContent");
+    const guideSource = document.getElementById("guideSource");
+
+    function escapeHtml(value) {
+      return value
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function inlineMarkdown(value) {
+      return escapeHtml(value)
+        .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_match, text, href) => {
+          const isExternal = /^https?:\/\//.test(href);
+          const target = isExternal ? ' target="_blank" rel="noopener noreferrer"' : "";
+          return `<a href="${href}"${target}>${text}</a>`;
+        })
+        .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+        .replace(/`(.+?)`/g, "<code>$1</code>");
+    }
+
+    function renderTable(lines, start) {
+      const tableLines = [];
+      let index = start;
+      while (index < lines.length && /^\|.*\|$/.test(lines[index].trim())) {
+        tableLines.push(lines[index].trim());
+        index++;
+      }
+      const rows = tableLines
+        .filter((line, i) => i !== 1 || !/^\|[\s:-]+\|/.test(line))
+        .map(line => line.slice(1, -1).split("|").map(cell => inlineMarkdown(cell.trim())));
+      if (!rows.length) return { html: "", next: index };
+      const [head, ...body] = rows;
+      const html = [
+        "<table><thead><tr>",
+        ...head.map(cell => `<th>${cell}</th>`),
+        "</tr></thead><tbody>",
+        ...body.map(row => `<tr>${row.map(cell => `<td>${cell}</td>`).join("")}</tr>`),
+        "</tbody></table>"
+      ].join("");
+      return { html, next: index };
+    }
+
+    function markdownToHtml(markdown) {
+      const lines = markdown.replace(/\r\n/g, "\n").split("\n");
+      const html = [];
+      let inList = false;
+      let paragraph = [];
+
+      function flushParagraph() {
+        if (paragraph.length) {
+          html.push(`<p>${inlineMarkdown(paragraph.join(" "))}</p>`);
+          paragraph = [];
+        }
+      }
+      function closeList() {
+        if (inList) {
+          html.push("</ul>");
+          inList = false;
+        }
+      }
+
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (!line) {
+          flushParagraph();
+          closeList();
+          continue;
+        }
+        if (/^\|.*\|$/.test(line)) {
+          flushParagraph();
+          closeList();
+          const result = renderTable(lines, i);
+          html.push(result.html);
+          i = result.next - 1;
+          continue;
+        }
+        if (line.startsWith("# ")) {
+          flushParagraph();
+          closeList();
+          html.push(`<h1>${inlineMarkdown(line.slice(2))}</h1>`);
+          continue;
+        }
+        if (line.startsWith("## ")) {
+          flushParagraph();
+          closeList();
+          html.push(`<h2>${inlineMarkdown(line.slice(3))}</h2>`);
+          continue;
+        }
+        if (line.startsWith("### ")) {
+          flushParagraph();
+          closeList();
+          html.push(`<h3>${inlineMarkdown(line.slice(4))}</h3>`);
+          continue;
+        }
+        if (line.startsWith("- ")) {
+          flushParagraph();
+          if (!inList) {
+            html.push("<ul>");
+            inList = true;
+          }
+          html.push(`<li>${inlineMarkdown(line.slice(2))}</li>`);
+          continue;
+        }
+        paragraph.push(line);
+      }
+
+      flushParagraph();
+      closeList();
+      return html.join("\n");
+    }
+
+    async function loadGuide(id, updateHash = true) {
+      const guide = guides.find(item => item.id === id);
+      if (!guide) return;
+      if (updateHash && location.hash !== `#${guide.id}`) {
+        history.replaceState(null, "", `#${guide.id}`);
+      }
+      guideSource.innerHTML = `Source: <a href="${guide.path}">${guide.path}</a>`;
+      guideContent.className = "guide-content loading";
+      guideContent.textContent = "Loading guide...";
+      const response = await fetch(guide.path, { cache: "no-cache" });
+      if (!response.ok) {
+        guideContent.textContent = "Could not load the guide. Open the Markdown source from the link above.";
+        return;
+      }
+      const markdown = await response.text();
+      guideContent.className = "guide-content";
+      guideContent.innerHTML = markdownToHtml(markdown);
+      guideContent.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    window.addEventListener("hashchange", () => loadGuide(location.hash.replace("#", ""), false));
+    if (location.hash) {
+      loadGuide(location.hash.replace("#", ""), false);
+    }
+  </script>
 </body>
 </html>
