@@ -9,6 +9,7 @@ Use this as a counselor-facing checklist during final review.
 - [ ] Research notes include sources.
 - [ ] Demonstration, comparison, or project evidence is available.
 - [ ] Scout prepared notes on safety, privacy, bias, accuracy, and human judgment.
+- [ ] Career research or interview notes are complete enough for discussion.
 
 ## Quality review
 
@@ -17,6 +18,7 @@ Use this as a counselor-facing checklist during final review.
 - [ ] Scout can identify where AI output was useful.
 - [ ] Scout can identify where AI output was limited, wrong, vague, or risky.
 - [ ] Scout can explain how they verified information.
+- [ ] Scout can describe at least one AI-related career path or professional role.
 - [ ] Scout can describe one responsible-use habit they will keep.
 
 ## Counselor notes

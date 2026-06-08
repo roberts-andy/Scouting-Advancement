@@ -26,5 +26,5 @@ Use the current official merit badge pamphlet and official requirements as the s
 | [Templates](#family-life-templates) | Workbook and CSV templates for home responsibilities, family meetings, and project planning. |
 | [Emails](#family-life-emails) | Parent/scout-ready email drafts. |
 | [Agendas](#family-life-agendas) | Kickoff, two touchpoints, and final review agendas. |
-| [Resources](#family-life-resources) | Counselor guide, question bank, final checklist, and scout instructions. |
+| [Resources](#family-life-resources) | Counselor guide, question bank, traceability matrix, final checklist, and scout instructions. |
 

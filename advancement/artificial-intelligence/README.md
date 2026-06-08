@@ -27,6 +27,6 @@ Use the current official merit badge pamphlet and official requirements as the s
 | [Templates](#artificial-intelligence-templates) | Workbook and CSV templates for AI activity tracking, tool evaluation, prompt logs, and final review. |
 | [Emails](#artificial-intelligence-emails) | Parent/scout-ready email drafts. |
 | [Agendas](#artificial-intelligence-agendas) | Kickoff, two touchpoints, and final review agendas. |
-| [Resources](#artificial-intelligence-resources) | Counselor guide, question bank, final checklist, and scout instructions. |
+| [Resources](#artificial-intelligence-resources) | Counselor guide, question bank, traceability matrix, final checklist, and scout instructions. |
 
 
