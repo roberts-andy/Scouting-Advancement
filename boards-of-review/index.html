@@ -351,7 +351,11 @@
 
     function inlineMarkdown(value) {
       return escapeHtml(value)
-        .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+        .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_match, text, href) => {
+          const isExternal = /^https?:\/\//.test(href);
+          const target = isExternal ? ' target="_blank" rel="noopener noreferrer"' : "";
+          return `<a href="${href}"${target}>${text}</a>`;
+        })
         .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
         .replace(/`(.+?)`/g, "<code>$1</code>");
     }
