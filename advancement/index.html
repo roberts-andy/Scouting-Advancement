@@ -598,7 +598,7 @@
       const folder = guide.folders[folderId];
       if (!folder) return "";
       return [
-        '<section class="folder-panel">',
+        '<section class="folder-panel" id="selectedFolder">',
         `<h2>${folder.label}</h2>`,
         `<p>${folder.description}</p>`,
         '<div class="folder-links">',
@@ -625,8 +625,9 @@
       }
       const markdown = await response.text();
       guideContent.className = "guide-content";
-      guideContent.innerHTML = `${renderFolderPanel(guide, folderId)}${markdownToHtml(markdown)}`;
-      guideContent.scrollIntoView({ behavior: "smooth", block: "start" });
+      guideContent.innerHTML = `${markdownToHtml(markdown)}${renderFolderPanel(guide, folderId)}`;
+      const scrollTarget = folderId ? document.getElementById("selectedFolder") : guideContent;
+      scrollTarget.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     window.addEventListener("hashchange", () => loadGuide(location.hash.replace("#", ""), false));
