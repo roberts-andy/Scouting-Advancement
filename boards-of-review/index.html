@@ -385,7 +385,7 @@
     function markdownToHtml(markdown) {
       const lines = markdown.replace(/\r\n/g, "\n").split("\n");
       const html = [];
-      let inList = false;
+      let listType = null;
       let paragraph = [];
 
       function flushParagraph() {
@@ -395,9 +395,16 @@
         }
       }
       function closeList() {
-        if (inList) {
-          html.push("</ul>");
-          inList = false;
+        if (listType) {
+          html.push(`</${listType}>`);
+          listType = null;
+        }
+      }
+      function openList(type) {
+        if (listType !== type) {
+          closeList();
+          html.push(`<${type}>`);
+          listType = type;
         }
       }
 
@@ -436,11 +443,15 @@
         }
         if (line.startsWith("- ")) {
           flushParagraph();
-          if (!inList) {
-            html.push("<ul>");
-            inList = true;
-          }
+          openList("ul");
           html.push(`<li>${inlineMarkdown(line.slice(2))}</li>`);
+          continue;
+        }
+        const orderedMatch = line.match(/^\d+\.\s+(.+)$/);
+        if (orderedMatch) {
+          flushParagraph();
+          openList("ol");
+          html.push(`<li>${inlineMarkdown(orderedMatch[1])}</li>`);
           continue;
         }
         paragraph.push(line);
