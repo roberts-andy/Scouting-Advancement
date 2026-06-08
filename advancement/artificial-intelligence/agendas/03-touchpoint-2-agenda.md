@@ -1,13 +1,11 @@
-# Touchpoint 2 Agenda
+# Optional Project Lab Agenda
 
-**Recommended timing:** After the scout has research notes and a draft demonstration, comparison, or project  
-**Recommended length:** 30 minutes
+**Recommended timing:** Only for scouts who need help preparing a demonstration, comparison, project, or teaching activity  
+**Recommended length:** 20-30 minutes
 
-## Goals
+## Purpose
 
-- Review project or demonstration progress.
-- Prepare scouts for final explanation and discussion.
-- Make sure safety, ethics, and verification are not afterthoughts.
+This is optional. Use it as a short project lab, not as a required meeting. The goal is to help scouts clarify what they tested or built and how they will explain the result at final review.
 
 ## Agenda
 
@@ -15,8 +13,8 @@
 |---:|---|---|
 | 5 min | Progress check | Confirm what is complete, in progress, or blocked. |
 | 10 min | Demonstration or comparison review | Ask the scout to explain what they tested and what they observed. |
-| 10 min | Human oversight and ethics | Discuss bias, privacy, accountability, and when AI should not make the final decision. |
-| 5 min | Final prep | Assign final reflection prompts and missing evidence. |
+| 10 min | Responsible-use reflection | Discuss bias, privacy, accountability, and when AI should not make the final decision. |
+| 5 min | Final prep | Identify final evidence and reflection notes. |
 
 ## Coaching prompts
 

@@ -21,3 +21,7 @@ Family Life is about practicing responsibility, communication, and service withi
 ## Counselor focus
 
 Ask the scout to explain. The tracker is evidence, but the conversation is where you validate understanding.
+## Official reference
+
+Use the current official requirements as the source of truth: [Family Life merit badge page](https://www.scouting.org/merit-badges/family-life/).
+

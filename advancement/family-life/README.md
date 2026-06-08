@@ -13,6 +13,12 @@ This folder contains a reusable counseling kit for Family Life. The structure is
 
 Use the current official merit badge pamphlet and official requirements as the source of truth. These materials help organize coaching and discussion; they intentionally do not reproduce official requirements verbatim.
 
+
+## Official references
+
+- [Scouting America merit badges](https://www.scouting.org/skills/merit-badges/)
+- [Family Life merit badge page](https://www.scouting.org/merit-badges/family-life/)
+- [Scouting America digital merit badge resource guides](https://www.scouting.org/skills/merit-badges/digital-resource-guides/)
 ## Folder guide
 
 | Folder | Contents |
@@ -21,3 +27,4 @@ Use the current official merit badge pamphlet and official requirements as the s
 | [Emails](#family-life-emails) | Parent/scout-ready email drafts. |
 | [Agendas](#family-life-agendas) | Kickoff, two touchpoints, and final review agendas. |
 | [Resources](#family-life-resources) | Counselor guide, question bank, final checklist, and scout instructions. |
+

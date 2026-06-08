@@ -1,10 +1,10 @@
-# Touchpoint 1 Reminder Email
+# Optional Support Check-in Reminder Email
 
-**Subject:** Artificial Intelligence check-in - bring your activity log
+**Subject:** Artificial Intelligence optional check-in - bring your activity log
 
 Hi Scouts,
 
-Our first Artificial Intelligence check-in is coming up. Please bring your AI activity log, research notes, and any examples of prompts, outputs, screenshots, or observations you are allowed to share.
+If you need support before final review, please bring your AI activity log, research notes, and any examples of prompts, outputs, screenshots, or observations you are allowed to share.
 
 Be ready to discuss:
 
@@ -13,6 +13,8 @@ Be ready to discuss:
 - What seemed wrong, biased, vague, or incomplete.
 - How you checked accuracy.
 - What privacy or safety concern you noticed.
+
+This check-in is optional; many scouts can complete this badge with the kickoff/work session and final review.
 
 Thanks,
 [Counselor Name]

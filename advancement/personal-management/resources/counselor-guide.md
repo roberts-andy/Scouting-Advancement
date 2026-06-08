@@ -40,3 +40,7 @@ Personal Management is an experience-driven badge. Your job is to launch the pro
 ## Final review standard
 
 You are validating understanding. A strong final review sounds like the scout saying: "Here is what I planned, here is what actually happened, here is why it was different, and here is what I would do differently next time."
+## Official reference
+
+Use the current official requirements as the source of truth: [Personal Management merit badge page](https://www.scouting.org/merit-badges/personal-management/).
+

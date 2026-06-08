@@ -13,6 +13,12 @@ This folder contains a reusable counseling kit for Citizenship in the Community.
 
 Use the current official merit badge pamphlet and official requirements as the source of truth. These materials help organize coaching and discussion; they intentionally do not reproduce official requirements verbatim.
 
+
+## Official references
+
+- [Scouting America merit badges](https://www.scouting.org/skills/merit-badges/)
+- [Citizenship in the Community merit badge page](https://www.scouting.org/merit-badges/citizenship-in-the-community/)
+- [Scouting America digital merit badge resource guides](https://www.scouting.org/skills/merit-badges/digital-resource-guides/)
 ## Folder guide
 
 | Folder | Contents |
@@ -21,3 +27,4 @@ Use the current official merit badge pamphlet and official requirements as the s
 | [Emails](#citizenship-in-community-emails) | Parent/scout-ready email drafts. |
 | [Agendas](#citizenship-in-community-agendas) | Kickoff, two touchpoints, and final review agendas. |
 | [Resources](#citizenship-in-community-resources) | Counselor guide, question bank, final checklist, and scout instructions. |
+

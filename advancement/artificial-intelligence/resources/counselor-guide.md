@@ -30,3 +30,7 @@ Ask scouts to compare, test, verify, and reflect. A strong final review sounds l
 - Avoid collecting screenshots that include personal information.
 - Encourage scouts to use examples that are safe, general, and age-appropriate.
 - Keep the conversation centered on learning and responsible use, not tool hype.
+## Official reference
+
+Use the current official requirements as the source of truth: [Artificial Intelligence merit badge page](https://www.scouting.org/merit-badges/artificial-intelligence/).
+

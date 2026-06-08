@@ -4,10 +4,12 @@ This folder contains a reusable counseling kit for the Artificial Intelligence m
 
 ## Recommended flow
 
-1. **Kickoff meeting** - Set expectations, introduce AI vocabulary, discuss responsible use, choose research/example areas, and start the AI activity log.
-2. **Touchpoint 1** - Review early research, tool observations, safety notes, and whether scouts are distinguishing AI output from verified facts.
-3. **Touchpoint 2** - Review project or demonstration progress, ethical tradeoffs, bias testing, and final discussion preparation.
-4. **Final meeting** - Review the scout's AI log, research notes, demonstration/project evidence, safety reflection, and ability to explain what they learned.
+This badge can usually be completed with **1-2 counselor meetings** plus scout preparation time.
+
+1. **Kickoff / working session (60-90 minutes)** - Set expectations, introduce AI vocabulary, discuss responsible use, review examples, start the activity log, and let scouts begin a tool comparison, prompt test, project, or teaching plan.
+2. **Final review (45-60 minutes)** - Review the activity log, research notes, project or teaching evidence, ethics/safety reflection, and career exploration.
+
+Optional lightweight check-ins can help if scouts need support, but this badge does not require a long multi-week cadence like Personal Management.
 
 ## Important counseling note
 
@@ -16,10 +18,8 @@ Use the current official merit badge pamphlet and official requirements as the s
 ## Official references
 
 - [Scouting America merit badges](https://www.scouting.org/skills/merit-badges/)
+- [Artificial Intelligence merit badge page](https://www.scouting.org/merit-badges/artificial-intelligence/)
 - [Scouting America digital merit badge resource guides](https://www.scouting.org/skills/merit-badges/digital-resource-guides/)
-
-If a badge-specific Scouting.org Artificial Intelligence page becomes available, use that page and the current pamphlet as the source of truth.
-
 ## Folder guide
 
 | Folder | Contents |
@@ -28,3 +28,5 @@ If a badge-specific Scouting.org Artificial Intelligence page becomes available,
 | [Emails](#artificial-intelligence-emails) | Parent/scout-ready email drafts. |
 | [Agendas](#artificial-intelligence-agendas) | Kickoff, two touchpoints, and final review agendas. |
 | [Resources](#artificial-intelligence-resources) | Counselor guide, question bank, final checklist, and scout instructions. |
+
+

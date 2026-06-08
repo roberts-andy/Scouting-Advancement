@@ -22,3 +22,7 @@ Citizenship in the Community is about moving from awareness to participation. Yo
 ## Counselor focus
 
 Ask scouts to connect the dots: What did you learn? Who was affected? What choices were available? What did you do? What could you do next?
+## Official reference
+
+Use the current official requirements as the source of truth: [Citizenship in the Community merit badge page](https://www.scouting.org/merit-badges/citizenship-in-the-community/).
+
