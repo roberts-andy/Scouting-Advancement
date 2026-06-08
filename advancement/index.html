@@ -229,13 +229,33 @@
       border-radius: 0.625rem;
       background: var(--cp-surface-soft);
     }
+    .file-panel {
+      margin-top: 20px;
+      padding: 18px;
+      border: 1px solid var(--cp-border);
+      border-radius: 0.625rem;
+      background: var(--cp-surface-soft);
+    }
     .folder-panel h2 {
       margin: 0 0 8px;
+      font-size: 1.2rem;
+    }
+    .file-panel h2 {
+      margin: 0 0 12px;
       font-size: 1.2rem;
     }
     .folder-panel p {
       margin: 0 0 12px;
       color: var(--cp-text-muted);
+    }
+    .file-content {
+      padding: 16px;
+      border: 1px solid var(--cp-border);
+      border-radius: 0.625rem;
+      background: var(--cp-surface);
+    }
+    .file-content h1 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
     }
     .folder-links {
       display: flex;
@@ -581,13 +601,35 @@
       return html.join("\n");
     }
 
+    function fileSlug(href) {
+      return href
+        .split("/")
+        .pop()
+        .replace(/\.[^.]+$/, "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "");
+    }
+
+    function isMarkdownFile(href) {
+      return href.toLowerCase().endsWith(".md");
+    }
+
     function resolveRoute(id) {
       for (const guide of guides) {
         if (id === guide.id) return { guide };
         const prefix = `${guide.id}-`;
         if (id.startsWith(prefix)) {
-          const folderId = id.slice(prefix.length);
-          if (guide.folders[folderId]) return { guide, folderId };
+          const rest = id.slice(prefix.length);
+          for (const folderId of Object.keys(guide.folders)) {
+            if (rest === folderId) return { guide, folderId };
+            const folderPrefix = `${folderId}-`;
+            if (rest.startsWith(folderPrefix)) {
+              const selectedSlug = rest.slice(folderPrefix.length);
+              const file = guide.folders[folderId].files.find(([, href]) => fileSlug(href) === selectedSlug);
+              if (file) return { guide, folderId, file };
+            }
+          }
         }
       }
       return {};
@@ -602,16 +644,43 @@
         `<h2>${folder.label}</h2>`,
         `<p>${folder.description}</p>`,
         '<div class="folder-links">',
-        ...folder.files.map(([label, href]) => `<a href="${href}">${label}</a>`),
+        ...folder.files.map(([label, href]) => {
+          if (isMarkdownFile(href)) {
+            return `<a href="#${guide.id}-${folderId}-${fileSlug(href)}">${label}</a>`;
+          }
+          return `<a href="${href}" download>${label}</a>`;
+        }),
         '</div>',
         '</section>'
       ].join("");
     }
 
+    async function renderFilePanel(file) {
+      if (!file) return "";
+      const [label, href] = file;
+      if (!isMarkdownFile(href)) return "";
+      const response = await fetch(href, { cache: "no-cache" });
+      if (!response.ok) {
+        return [
+          '<section class="file-panel" id="selectedFile">',
+          `<h2>${label}</h2>`,
+          `<p class="loading">Could not load ${href}. Use the file link above.</p>`,
+          '</section>'
+        ].join("");
+      }
+      const markdown = await response.text();
+      return [
+        '<section class="file-panel" id="selectedFile">',
+        `<h2>${label}</h2>`,
+        `<div class="file-content">${markdownToHtml(markdown)}</div>`,
+        '</section>'
+      ].join("");
+    }
+
     async function loadGuide(id, updateHash = true) {
-      const { guide, folderId } = resolveRoute(id);
+      const { guide, folderId, file } = resolveRoute(id);
       if (!guide) return;
-      const route = folderId ? `${guide.id}-${folderId}` : guide.id;
+      const route = file ? `${guide.id}-${folderId}-${fileSlug(file[1])}` : folderId ? `${guide.id}-${folderId}` : guide.id;
       if (updateHash && location.hash !== `#${route}`) {
         history.replaceState(null, "", `#${route}`);
       }
@@ -624,9 +693,10 @@
         return;
       }
       const markdown = await response.text();
+      const filePanel = await renderFilePanel(file);
       guideContent.className = "guide-content";
-      guideContent.innerHTML = `${markdownToHtml(markdown)}${renderFolderPanel(guide, folderId)}`;
-      const scrollTarget = folderId ? document.getElementById("selectedFolder") : guideContent;
+      guideContent.innerHTML = `${markdownToHtml(markdown)}${renderFolderPanel(guide, folderId)}${filePanel}`;
+      const scrollTarget = file ? document.getElementById("selectedFile") : folderId ? document.getElementById("selectedFolder") : guideContent;
       scrollTarget.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
