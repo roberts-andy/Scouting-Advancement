@@ -33,19 +33,19 @@ Use the current official Scouts BSA requirements and your troop advancement proc
 
 
 
-## Rank folders
+## Scouting Ranks
 
 
 
-| Folder | Purpose |
+| Rank | Purpose |
 |---|---|
-| `00-scout` | Introductory rank context and optional welcome-review questions. |
-| `01-tenderfoot` | Early participation, patrol identity, basic skills, and first steps toward independence. |
-| `02-second-class` | Growing confidence, outdoor skills, service, and more active troop participation. |
-| `03-first-class` | Becoming a self-sufficient scout ready to help newer scouts. |
-| `04-star` | Transition into leadership, service, merit badges, and broader contribution. |
-| `05-life` | Mature leadership, mentoring, and preparation for Eagle-level responsibility. |
-| `06-eagle` | Culminating reflection on leadership, service, character, and future citizenship. |
+| [Scout](00-scout/) | Introductory rank context and optional welcome-review questions. |
+| [Tenderfoot](01-tenderfoot/) | Early participation, patrol identity, basic skills, and first steps toward independence. |
+| [Second Class](02-second-class/) | Growing confidence, outdoor skills, service, and more active troop participation. |
+| [First Class](03-first-class/) | Becoming a self-sufficient scout ready to help newer scouts. |
+| [Star](04-star/) | Transition into leadership, service, merit badges, and broader contribution. |
+| [Life](05-life/) | Mature leadership, mentoring, and preparation for Eagle-level responsibility. |
+| [Eagle](06-eagle/) | Culminating reflection on leadership, service, character, and future citizenship. |
 
 
 
