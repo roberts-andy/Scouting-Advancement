@@ -10,7 +10,7 @@
 
 ## Personal Vision
 
-I will expand merit badge opportunities for Scouts in my troop and equip troop parents with the knowledge and confidence to support the advancement process.
+I will expand merit badge opportunities for Scouts in my troop and equip troop parents with the knowledge and confidence to support the rank advancement process.
 
 ## 
 
@@ -29,7 +29,7 @@ I will expand merit badge opportunities for Scouts in my troop and equip troop p
 
 ## Ticket Goals
 
-| **Become qualified as a merit badge counselor** | **Lead merit badge workshops** | **Build an advancement-program repository** | **Create a parent advancement cheat sheet** | **Establish feedback loops** |
+| **Become qualified as a merit badge counselor** | **Lead merit badge workshops** | **Build an advancement-program repository** | **Create a parent rank advancement cheat sheet** | **Establish feedback loops** |
 |-|-|-|-|-|
 |Complete the required counselor registration and qualification steps.|Plan and coordinate each workshop.|Organize current merit badge requirements and counseling resources.|Document the key parts of the advancement process.|Create a short feedback survey for Scouts, parents, and adult leaders.|
 |Maintain current knowledge of the requirements for 10 merit badges.|Lead the workshops and support Scouts through the relevant requirements.|Create reusable workshop-planning and data-collection templates.|Explain parent participation and appropriate roles in boards of review.|Administer the survey after each workshop.|
